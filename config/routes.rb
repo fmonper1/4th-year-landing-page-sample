@@ -9,5 +9,8 @@ Rails.application.routes.draw do
     get :pricing, path: '/pricing'
   end
 
+  resources :link_clicks, only: :create
+  resources :registrations, only: [:new, :create]
+
   root to: "pages#home"
 end

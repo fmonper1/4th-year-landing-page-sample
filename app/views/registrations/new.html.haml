@@ -1,0 +1,21 @@
+- content_for :title, "Register"
+#content
+  .container
+    .page-header
+      %h1 
+        Lorum Ipsum
+    %p.lead
+      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean non malesuada ante. Etiam id urna lectus. Mauris ultrices augue vestibulum semper vestibulum. Proin tempus arcu in tempor laoreet. Aenean pulvinar leo non felis hendrerit consequat. Donec vestibulum luctus sagittis.
+
+
+    .sign-up-form
+
+      = simple_form_for @registration do |f|
+        .row
+          .col-md-6
+            = f.input :name
+            = f.input :email
+            = f.input :extra_info
+            = f.submit 'Register', class: 'btn btn-primary'
+
+  = render 'layouts/footer'

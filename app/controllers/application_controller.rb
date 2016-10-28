@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :update_headers_to_disable_caching
   before_action :ie_warning
+  before_action :current_visit
 
   ## The following are used by our Responder service classes so we can access
   ## the instance variable for the current resource easily via a standard method
@@ -45,4 +46,11 @@ class ApplicationController < ActionController::Base
     def ie_warning
       return redirect_to(ie_warning_path) if request.user_agent.to_s =~ /MSIE [6-7]/ && request.user_agent.to_s !~ /Trident\/7.0/
     end
+
+    private
+      def current_visit
+        @current_visit = Visit.find_by(id: session[:current_visit_id]) || Visit.create
+        session[:current_visit_id] = @current_visit.id
+        @current_visit
+      end
 end

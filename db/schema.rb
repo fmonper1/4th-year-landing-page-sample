@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028122840) do
+ActiveRecord::Schema.define(version: 20161028181702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,24 @@ ActiveRecord::Schema.define(version: 20161028122840) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
 
+  create_table "link_clicks", force: :cascade do |t|
+    t.integer  "visit_id"
+    t.string   "link_name"
+    t.string   "link_css_id"
+    t.text     "url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["visit_id"], name: "index_link_clicks_on_visit_id", using: :btree
+  end
+
+  create_table "registrations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "extra_info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id", null: false
     t.text     "data"
@@ -37,6 +55,11 @@ ActiveRecord::Schema.define(version: 20161028122840) do
     t.datetime "updated_at"
     t.index ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
     t.index ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
