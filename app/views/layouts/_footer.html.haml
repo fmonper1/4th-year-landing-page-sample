@@ -1,0 +1,24 @@
+%footer.footer.clearfix
+  .container
+    .pull-left
+      %ul.list-inline.social-links
+        %li
+          = link_to 'https://www.facebook.com/epigenesys', title: "epiGenesys on Facebook", target: "_blank" do
+            = fa_icon 'facebook-square', style: 'color:#4862A3'
+        %li
+          = link_to 'https://plus.google.com/102851096879622169623', title: "epiGenesys on Google+", target: "_blank" do
+            = fa_icon 'google-plus-square', style: 'color:#D95232'
+        %li
+          = link_to 'https://www.linkedin.com/company/epigenesys', title: "epiGenesys on LinkedIn", target: "_blank" do
+            = fa_icon 'linkedin-square', style: 'color:#0077B5'
+        %li
+          = link_to 'https://twitter.com/epigenesys', title: "epiGenesys on Twitter", target: "_blank" do
+            = fa_icon 'twitter-square', style: 'color:#55ACEE'
+
+      %ul.list-inline.footer-links
+        %li.hidden-xs.copyright.no-border &copy; #{Date.today.year} Epi Genesys Limited
+        %li.visible-xs.copyright.no-border &copy; #{Date.today.year} Epi Genesys Limited
+
+    .uni-logo
+      = link_to 'http://www.sheffield.ac.uk', title: 'Visit the University of Sheffield website', target: "_blank" do
+        = image_tag 'tuoslogo_rgb_lo.gif', alt: 'The University of Sheffield', height: 65

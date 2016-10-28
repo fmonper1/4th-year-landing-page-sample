@@ -1,0 +1,130 @@
+@import 'variables'
+
+html
+  height: 100%
+
+body
+  height: 100%
+  background-color: #fff
+  font-family: Roboto
+  &.page-body
+    background: #fff
+
+@media (min-width: $screen-md-min)
+  body.no-touch
+    background-size: cover
+#main-nav
+  &.touch-nav
+    margin-top: -120px
+    transition: margin-top 0.2s linear
+  .navbar-brand
+    padding-top: 5px
+
+
+.lead
+  font-size: floor(($font-size-base * 1.2))
+  strong
+    font-weight: 300
+
+@media (min-width: $screen-sm-max)
+  .lead
+    font-size: floor(($font-size-base * 1.4))
+
+
+.sub-heading
+  color: #7F878D
+
+.page-header
+  margin-top: 100px
+
+#content
+  background-color: #fff
+  border-top: 1px solid #333
+
+.section
+  padding: 60px 0
+  position: relative
+  z-index: 2
+  &.section-alt
+    background-color: #f7f7f7
+  .page-header
+    margin-top: 0
+    h2
+      margin-bottom: 0
+
+@media (max-width: $screen-sm-max)
+  .section
+    padding: 40px 0
+  h1
+    font-size: 34px
+  h2
+    font-size: 26px
+
+.footer
+  position: relative
+  z-index: 2
+  border-top: 1px solid #eee
+  padding: 20px 0 0 0
+  margin-top: 0
+  background-color: #333
+  color: #eee
+  font-size: 13px
+  h5
+    margin-top: 0
+    margin-bottom: 5px
+  a
+    color: lighten($link-color, 10%)
+  .copyright
+    color: #999
+  .social-links
+    i
+      font-size: 52px
+      height: 45px
+      line-height: 45px
+      position: relative
+      &:after
+        z-index: -1
+        content: ' '
+        position: absolute
+        background-color: #fff
+        border-radius: 10px
+        top: 2px
+        right: 2px
+        bottom: 2px
+        left: 2px
+        @media (-webkit-min-device-pixel-ratio: 3)
+          bottom: 2px
+
+  .uni-logo
+    text-align: right
+    margin-bottom: 20px
+  .footer-links
+    li
+      border-right: 1px solid #666
+      padding-right: 10px
+      &:last-child, &.no-border
+        border-right: none
+        padding-right: 0
+
+@media (max-width: $screen-xs-max) and (orientation: portrait)
+  .footer
+    .uni-logo
+      text-align: left
+
+.call-to-action
+  text-align: center
+  background-color: $alert-info-bg
+  color: #333
+  border: none
+  box-shadow: none
+  font-size: 16px
+  a
+    color: darken($link-color, 10%)
+
+.opacity-link
+  opacity: 0.7
+  &:hover
+    opacity: 1
+
+.well, .alert
+  border-radius: 0
