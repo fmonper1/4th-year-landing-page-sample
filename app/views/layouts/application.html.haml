@@ -17,10 +17,7 @@
 
         .collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
-            %li= link_to 'Section 1', '#section-1', class: 'scroll'
-            %li= link_to 'Section 2', '#section-2', class: 'scroll'
-            %li= link_to 'Section 3', '#section-3', class: 'scroll'
-            %li= link_to 'Section 4', '#section-4', class: 'scroll'
-            %li= link_to 'Section 5', '#section-5', class: 'scroll'
+            = content_for(:nav_links)
+            
 
     = yield

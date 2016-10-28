@@ -1,4 +1,10 @@
 - content_for :title, "Home"
+- content_for :nav_links do
+  %li= link_to 'Section 1', '#section-1', class: 'scroll'
+  %li= link_to 'Section 2', '#section-2', class: 'scroll'
+  %li= link_to 'Section 3', '#section-3', class: 'scroll'
+  %li= link_to 'Section 4', '#section-4', class: 'scroll'
+  %li= link_to 'Section 5', '#section-5', class: 'scroll'
 
 #content
   #section-1.section.section-alt
@@ -28,7 +34,7 @@
               Nam turpis lacus, blandit id feugiat a, ultrices eu neque. Sed placerat maximus erat, non ornare quam porttitor eu. Integer quam tortor, fermentum at magna in, dapibus convallis est.
             
             %p
-              Cras vulputate aliquet hendrerit. Pellentesque #{link_to 'Imperdiet Dolor Hendrerit', 'http://www.sheffield.ac.uk', title: "Pellentesque imperdiet dolor hendrerit mauris suscipit", target: "_blank"}  mauris suscipit, vitae dignissim mi venenatis. Morbi egestas diam at ipsum commodo, quis tristique nulla pharetra.
+              Cras vulputate aliquet hendrerit. Pellentesque #{link_to 'Imperdiet Dolor Hendrerit', pricing_path, title: "Pellentesque imperdiet dolor hendrerit mauris suscipit"}  mauris suscipit, vitae dignissim mi venenatis. Morbi egestas diam at ipsum commodo, quis tristique nulla pharetra.
 
         .col-md-4
           .work
@@ -38,7 +44,7 @@
             %p
               Pellentesque scelerisque, ipsum sed consectetur facilisis, orci massa interdum mi, sit amet vulputate erat nulla in lorem. Morbi vestibulum at diam ac consequat. 
             %p
-              Proin egestas euismod pharetra. Integer malesuada finibus ex vel vehicula. Curabitur sed lorem vehicula, #{link_to 'Imperdiet Dolor Hendrerit', 'http://www.sheffield.ac.uk', title: "Pellentesque imperdiet dolor hendrerit mauris suscipit", target: "_blank"}, lacinia libero ac, pharetra elit. Nunc eget magna semper, convallis justo sit amet, iaculis enim.
+              Proin egestas euismod pharetra. Integer malesuada finibus ex vel vehicula. Curabitur sed lorem vehicula, #{link_to 'Imperdiet Dolor Hendrerit', pricing_path, title: "Pellentesque imperdiet dolor hendrerit mauris suscipit"}, lacinia libero ac, pharetra elit. Nunc eget magna semper, convallis justo sit amet, iaculis enim.
 
         .col-md-4
           .work
@@ -46,7 +52,7 @@
               = fa_icon 'bicycle', class: 'big-icon'
               %h3 Luctus sapien
             %p
-              Mauris placerat sapien sed ante imperdiet vestibulum. Aliquam consequat sem et quam convallis, #{link_to 'Imperdiet Dolor Hendrerit', 'http://www.sheffield.ac.uk', title: "Pellentesque imperdiet dolor hendrerit mauris suscipit", target: "_blank"}, ac vestibulum tortor porttitor. Maecenas elit massa, sodales et placerat ut, molestie eu elit. Cras vitae mollis ipsum.
+              Mauris placerat sapien sed ante imperdiet vestibulum. Aliquam consequat sem et quam convallis, #{link_to 'Imperdiet Dolor Hendrerit', pricing_path, title: "Pellentesque imperdiet dolor hendrerit mauris suscipit"}, ac vestibulum tortor porttitor. Maecenas elit massa, sodales et placerat ut, molestie eu elit. Cras vitae mollis ipsum.
             %p
               Pellentesque bibendum augue egestas lectus iaculis laoreet. Cras viverra accumsan lectus sed luctus. Nulla vel enim erat. Mauris consectetur lobortis est ut bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 
@@ -76,7 +82,7 @@
               Nam turpis lacus, blandit id feugiat a, ultrices eu neque. Sed placerat maximus erat, non ornare quam porttitor eu. Integer quam tortor, fermentum at magna in, dapibus convallis est.
             
             %p
-              Cras vulputate aliquet hendrerit. Pellentesque #{link_to 'Imperdiet Dolor Hendrerit', 'http://www.sheffield.ac.uk', title: "Pellentesque imperdiet dolor hendrerit mauris suscipit", target: "_blank"}  mauris suscipit, vitae dignissim mi venenatis. Morbi egestas diam at ipsum commodo, quis tristique nulla pharetra.
+              Cras vulputate aliquet hendrerit. Pellentesque #{link_to 'Imperdiet Dolor Hendrerit', pricing_path, title: "Pellentesque imperdiet dolor hendrerit mauris suscipit"}  mauris suscipit, vitae dignissim mi venenatis. Morbi egestas diam at ipsum commodo, quis tristique nulla pharetra.
 
         .col-md-4
           .work
@@ -86,7 +92,7 @@
             %p
               Pellentesque scelerisque, ipsum sed consectetur facilisis, orci massa interdum mi, sit amet vulputate erat nulla in lorem. Morbi vestibulum at diam ac consequat. 
             %p
-              Proin egestas euismod pharetra. Integer malesuada finibus ex vel vehicula. Curabitur sed lorem vehicula, #{link_to 'Imperdiet Dolor Hendrerit', 'http://www.sheffield.ac.uk', title: "Pellentesque imperdiet dolor hendrerit mauris suscipit", target: "_blank"}, lacinia libero ac, pharetra elit. Nunc eget magna semper, convallis justo sit amet, iaculis enim.
+              Proin egestas euismod pharetra. Integer malesuada finibus ex vel vehicula. Curabitur sed lorem vehicula, #{link_to 'Imperdiet Dolor Hendrerit', pricing_path, title: "Pellentesque imperdiet dolor hendrerit mauris suscipit"}, lacinia libero ac, pharetra elit. Nunc eget magna semper, convallis justo sit amet, iaculis enim.
 
         .col-md-4
           .work
@@ -94,7 +100,7 @@
               = fa_icon 'bicycle', class: 'big-icon'
               %h3 Luctus sapien
             %p
-              Mauris placerat sapien sed ante imperdiet vestibulum. Aliquam consequat sem et quam convallis, #{link_to 'Imperdiet Dolor Hendrerit', 'http://www.sheffield.ac.uk', title: "Pellentesque imperdiet dolor hendrerit mauris suscipit", target: "_blank"}, ac vestibulum tortor porttitor. Maecenas elit massa, sodales et placerat ut, molestie eu elit. Cras vitae mollis ipsum.
+              Mauris placerat sapien sed ante imperdiet vestibulum. Aliquam consequat sem et quam convallis, #{link_to 'Imperdiet Dolor Hendrerit', pricing_path, title: "Pellentesque imperdiet dolor hendrerit mauris suscipit"}, ac vestibulum tortor porttitor. Maecenas elit massa, sodales et placerat ut, molestie eu elit. Cras vitae mollis ipsum.
             %p
               Pellentesque bibendum augue egestas lectus iaculis laoreet. Cras viverra accumsan lectus sed luctus. Nulla vel enim erat. Mauris consectetur lobortis est ut bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 
@@ -136,7 +142,7 @@
       .row
         .col-md-6      
           .margin-bottom-20
-            = link_to "#", target: "_blank" do
+            = link_to "#" do
               = image_tag "dummy-800x426-colorD3D9DE.jpg", alt: "Placeholder", class: 'img-responsive'
         .col-md-6
           %address.lead
