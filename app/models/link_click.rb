@@ -16,4 +16,5 @@
 #
 
 class LinkClick < ApplicationRecord
+  
 end
