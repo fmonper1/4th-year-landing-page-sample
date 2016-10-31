@@ -19,6 +19,7 @@
           %table.table.table-hover
             %thead
               %tr
+                %th Time
                 %th Link ID
                 %th Link name
                 %th Url
@@ -26,6 +27,7 @@
             %tbody
               - visit.link_clicks.each do |link_click|
                 %tr
+                  %td= l link_click.created_at, format: :compact
                   %td= link_click.link_css_id
                   %td= link_click.link_name
                   %td= link_click.url
