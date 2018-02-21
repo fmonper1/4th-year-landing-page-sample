@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20161031183325) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
@@ -30,7 +27,7 @@ ActiveRecord::Schema.define(version: 20161031183325) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "link_clicks", id: :serial, force: :cascade do |t|
+  create_table "link_clicks", force: :cascade do |t|
     t.integer "visit_id"
     t.string "link_name"
     t.string "link_css_id"
@@ -40,7 +37,7 @@ ActiveRecord::Schema.define(version: 20161031183325) do
     t.index ["visit_id"], name: "index_link_clicks_on_visit_id"
   end
 
-  create_table "registrations", id: :serial, force: :cascade do |t|
+  create_table "registrations", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.text "extra_info"
@@ -57,7 +54,7 @@ ActiveRecord::Schema.define(version: 20161031183325) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -65,15 +62,15 @@ ActiveRecord::Schema.define(version: 20161031183325) do
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "visits", id: :serial, force: :cascade do |t|
+  create_table "visits", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "registration_id"
