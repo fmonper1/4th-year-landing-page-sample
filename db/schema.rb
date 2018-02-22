@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031183325) do
+ActiveRecord::Schema.define(version: 20180222115702) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 20161031183325) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["visit_id"], name: "index_link_clicks_on_visit_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "registrations", force: :cascade do |t|
