@@ -16,9 +16,15 @@ require 'rspec/rails'
 # option on the command line or in ~/.rspec, .rspec or `.rspec-local`.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+# If the test database needs migrating, load in the current schema
+if ActiveRecord::Base.connection.migration_context.needs_migration?
+  puts('Loading schema into test database...')
+  ActiveRecord::Tasks::DatabaseTasks.load_schema_current
+end
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
   config.include Shoulda::Matchers::ActiveRecord
   config.include Shoulda::Matchers::ActiveModel
 
@@ -68,12 +74,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 end
 
-Capybara.configure do |config|
-  config.match = :prefer_exact
-end
-
 require 'capybara/poltergeist'
-
 module Capybara::Poltergeist
   # The following code is to suppress the warning messages occurred in Mavericks
   class Client
@@ -98,9 +99,7 @@ module Capybara::Poltergeist
   end
 end
 
-Capybara.asset_host = 'http://localhost:3000'
-
-class WarningSuppressor
+class PoltergeistWarningSuppressor
   class << self
     def write(message)
       if message =~ /no title for patternMismatch provided. Always add a title attribute/ ||
@@ -119,14 +118,21 @@ class WarningSuppressor
 end
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, phantomjs_logger: WarningSuppressor)
+  Capybara::Poltergeist::Driver.new(app, phantomjs_logger: PoltergeistWarningSuppressor)
 end
-Capybara.javascript_driver = :poltergeist
+
 Capybara.register_server :thin do |app, port|
   require 'rack/handler/thin'
   Rack::Handler::Thin.run(app, Port: port)
 end
-Capybara.server = :webrick
+
+Capybara.configure do |config|
+  config.asset_host = 'http://localhost:3000'
+  config.javascript_driver = :poltergeist
+  config.server = :thin
+  config.match = :prefer_exact
+end
+
 def wait_for_ajax
   Timeout.timeout(Capybara.default_max_wait_time) do
     loop do
