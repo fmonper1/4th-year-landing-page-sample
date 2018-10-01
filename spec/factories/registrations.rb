@@ -10,10 +10,12 @@
 #  updated_at :datetime         not null
 #
 
-FactoryGirl.define do
+
+
+FactoryBot.define do
   factory :registration do
-    name "MyString"
-    email "MyString"
-    extra_info "MyText"
+    name { "MyString" }
+    email { "MyString" }
+    extra_info { "MyText" }
   end
 end

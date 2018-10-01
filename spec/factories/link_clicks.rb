@@ -15,8 +15,10 @@
 #  index_link_clicks_on_visit_id  (visit_id)
 #
 
-FactoryGirl.define do
+
+
+FactoryBot.define do
   factory :link_click do
-    
+
   end
 end

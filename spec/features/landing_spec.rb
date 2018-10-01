@@ -50,9 +50,9 @@ describe 'Landing page', js: true do
   end
 
   context 'As a logged in user' do
-    let(:user)  { FactoryGirl.create :user }
-    let(:my_visit) { FactoryGirl.create :visit }
-    let!(:link_click) { FactoryGirl.create :link_click, link_name: 'My link name', link_css_id: 'link-1', url: '/page_1', visit: my_visit}
+    let(:user)  { FactoryBot.create :user }
+    let(:my_visit) { FactoryBot.create :visit }
+    let!(:link_click) { FactoryBot.create :link_click, link_name: 'My link name', link_css_id: 'link-1', url: '/page_1', visit: my_visit }
     before { login_as user }
 
     specify 'I can see a list of visits and link clicks' do
@@ -72,5 +72,5 @@ describe 'Landing page', js: true do
     fill_in 'Extra info', with: 'Some extra info'
     click_button 'Register'
   end
-  
+
 end

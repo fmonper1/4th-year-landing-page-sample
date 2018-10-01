@@ -8,8 +8,10 @@
 #  registration_id :integer
 #
 
-FactoryGirl.define do
+
+
+FactoryBot.define do
   factory :visit do
-    
+
   end
 end
